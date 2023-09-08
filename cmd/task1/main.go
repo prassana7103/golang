@@ -6,7 +6,7 @@ const spanish = "Spanish"
 const englishHelloPrefix = "Hello, "
 const spanishHelloPrefix = "Hola, "
 
-func Hello(name string, language string) string {
+func hello(name string, language string) string {
 	if name == "" {
 		name = "World"
 	}
@@ -17,5 +17,5 @@ func Hello(name string, language string) string {
 	return englishHelloPrefix + name
 }
 func main() {
-	fmt.Println(Hello("Chris", "spanish"))
+	fmt.Println(hello("Chris", "spanish"))
 }

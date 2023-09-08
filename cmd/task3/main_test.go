@@ -3,7 +3,7 @@ package main
 import"testing"
 
 func TestIteration (t *testing.T){
-	iterate := Iteration("A")
+	iterate := iteration("A")
 	expected := "AAAAA"
 
 	if iterate != expected {
