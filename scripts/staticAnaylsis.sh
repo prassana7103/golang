@@ -8,7 +8,10 @@ else
     docker pull ubuntu
 
     # Create a Docker container and start a shell
-    docker run -it --name static-analysis ubuntu /bin/bash <<EOF
+    docker run -it --name static-analysis ubuntu /bin/bash 
+
+    docker exec -i static-analysis /bin/bash -c '
+
 
     # Inside the container: update packages and install Go and staticcheck
     apt-get update
@@ -17,6 +20,7 @@ else
 
     # Exit the container
     exit
+    '
 
 EOF
 
