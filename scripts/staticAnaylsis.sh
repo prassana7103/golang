@@ -22,6 +22,7 @@ EOF
     # Commit changes to a new image (optional)
     #docker commit static-analysis my-ubuntu-with-staticcheck
 fi
+ls
 
 # Run the container with staticcheck (optional)
 #docker run -it my-ubuntu-with-staticcheck /bin/bash
