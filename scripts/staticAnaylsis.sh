@@ -6,7 +6,7 @@ if [[ "$(docker ps -a -q -f name=static-analysis)" ]]; then
 else
     # Pull the Ubuntu image
     docker pull ubuntu
-    docker run -v golang:/var/lib/jenkins/workspace/demo -d -it --name static-analysis ubuntu /bin/bash 
+    docker run -v golang:/var/lib/jenkins/workspace/demo -d -it --name static-analysis ubuntu /bin/bash tail -f /dev/null
     docker exec -i static-analysis /bin/bash -c '
         # Inside the container: update packages and install Go and staticcheck
         apt-get update
