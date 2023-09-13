@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Check if a container with the name 'static-analysis' exists
+if [[ "$(docker ps -a -q -f name=static-analysis)" ]]; then
+    echo "Container 'static-analysis' already exists."
+else
+    # Pull the Ubuntu image
+    docker pull ubuntu
+
+    # Create a Docker container and start a shell
+    docker run -it --name static-analysis ubuntu /bin/bash <<EOF
+
+    # Inside the container: update packages and install Go and staticcheck
+    apt-get update
+    apt-get install -y golang
+    go get honnef.co/go/tools/cmd/staticcheck
+
+    # Exit the container
+    exit
+
+EOF
+
+    # Commit changes to a new image (optional)
+    docker commit static-analysis my-ubuntu-with-staticcheck
+fi
+
+# Run the container with staticcheck (optional)
+docker run -it my-ubuntu-with-staticcheck /bin/bash
