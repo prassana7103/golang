@@ -12,6 +12,9 @@ else
         apt-get update
         apt-get install -y golang
         go get honnef.co/go/tools/cmd/staticcheck
+        ls
+        cd cmd
+        staticcheck ./...
 
         # Exit the container
         exit
