@@ -6,20 +6,15 @@ if [[ "$(docker ps -a -q -f name=static-analysis)" ]]; then
 else
     # Pull the Ubuntu image
     docker pull ubuntu
-
-    # Create a Docker container and start a shell
-    docker run -it --name static-analysis ubuntu /bin/bash 
-
+    docker run -d --name static-analysis ubuntu /bin/bash 
     docker exec -i static-analysis /bin/bash -c '
+        # Inside the container: update packages and install Go and staticcheck
+        apt-get update
+        apt-get install -y golang
+        go get honnef.co/go/tools/cmd/staticcheck
 
-
-    # Inside the container: update packages and install Go and staticcheck
-    apt-get update
-    apt-get install -y golang
-    go get honnef.co/go/tools/cmd/staticcheck
-
-    # Exit the container
-    exit
+        # Exit the container
+        exit
     '
 
 EOF
