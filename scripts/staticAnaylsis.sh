@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 # Check if a container with the name 'static-analysis' exists
 if [[ "$(docker ps -a -q -f name=static-analysis)" ]]; then
     echo "Container 'static-analysis' already exists."
