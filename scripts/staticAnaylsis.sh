@@ -17,6 +17,7 @@ docker exec -i static-analysis /bin/bash -c '
     apt-get update
     apt-get install -y golang
     go mod init github.com/suyash-chavan/golang
+    go mod tidy
     go get honnef.co/go/tools/cmd/staticcheck
 '
 
