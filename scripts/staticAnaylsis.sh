@@ -15,12 +15,12 @@ fi
 docker exec -i static-analysis /bin/bash -c '
     apt-get update
     apt-get install -y wget
+    apt install golang-go
     wget https://golang.org/dl/go1.19.linux-amd64.tar.gz
     tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
-
     go version
-
     go get -u honnef.co/go/tools/cmd/staticcheck
+    staticcheck --version
 '
 
 # Exit the container (if it was just created)
