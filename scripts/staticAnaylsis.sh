@@ -21,7 +21,7 @@ docker exec -i static-analysis /bin/bash -c '
     echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
     source ~/.bashrc
     go version
-    apt install dingo-hunter
+    go get -u github.com/nickng/dingo-hunter
     dingo-hunter --version
 
 '
