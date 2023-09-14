@@ -20,7 +20,7 @@ docker exec -i static-analysis /bin/bash -c '
 
     go version
 
-    go install honnef.co/go/tools/cmd/staticcheck@latest
+    go get -u honnef.co/go/tools/cmd/staticcheck
 '
 
 # Exit the container (if it was just created)
