@@ -19,7 +19,7 @@ docker exec -i static-analysis /bin/bash -c '
     wget https://golang.org/dl/go1.19.linux-amd64.tar.gz
     tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
     go version
-    go get -u honnef.co/go/tools/cmd/staticcheck
+    go install honnef.co/go/tools/cmd/staticcheck@latest
     staticcheck --version
 '
 
