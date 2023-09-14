@@ -13,9 +13,12 @@ fi
 
 # Execute specific commands inside the container
 docker exec -i static-analysis /bin/bash -c '
-    # Inside the container: update packages and install Go and staticcheck
     apt-get update
-    apt-get install -y golang
+    apt-get install -y wget
+    wget https://golang.org/dl/go1.19.linux-amd64.tar.gz
+    tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
+    echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+    source ~/.bashrc
     go install honnef.co/go/tools/cmd/staticcheck@latest
 '
 
