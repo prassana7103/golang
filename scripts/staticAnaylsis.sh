@@ -21,8 +21,9 @@ docker exec -i static-analysis /bin/bash -c '
     echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
     source ~/.bashrc
     go version
-    go install honnef.co/go/tools/cmd/staticcheck@latest
-    staticcheck --version
+    apt install dingo-hunter
+    dingo-hunter --version
+
 '
 
 # Exit the container (if it was just created)
