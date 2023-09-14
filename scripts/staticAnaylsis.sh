@@ -7,7 +7,7 @@ if [[ "$(docker ps -a -q -f name=static-analysis)" ]]; then
     echo "Container 'static-analysis' already exists."
 else
     # Create and start the 'static-analysis' container
-    docker pull ubuntu
+    docker pull golang
     docker run -v /var/lib/jenkins/workspace/demo:/var/lib/jenkins/workspace/demo -d -it --name static-analysis ubuntu tail -f /dev/null
 fi
 
