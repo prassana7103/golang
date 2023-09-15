@@ -21,7 +21,7 @@ docker exec -i static-analysis /bin/bash -c '
     go version
     go install honnef.co/go/tools/cmd/staticcheck@latest
     cd /var/lib/jenkins/workspace/demo
-    /usr/local/go/bin/staticcheck -f=text ./... > analysis_report
+    /root/go/bin/staticcheck -f=text ./... > analysis_report
 '
 
 # Exit the container (if it was just created)
