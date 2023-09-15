@@ -14,7 +14,6 @@ fi
 docker exec -i static-analysis /bin/bash -c '
     apt-get update
     apt-get install -y wget
-    apt install golang-go -y
     wget https://golang.org/dl/go1.19.linux-amd64.tar.gz
     tar -C /usr/local -xzf go1.19.linux-amd64.tar.gz
     echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
